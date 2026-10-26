@@ -1,0 +1,25 @@
+# ZeroCruft robots.txt
+# Engineered for high-signal traditional search indexing & generative engine optimization (GEO)
+
+User-agent: *
+Allow: /
+
+# Generative Engine Optimization (GEO) Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & LLM Manifests
+Sitemap: https://zerocruft.pages.dev/sitemap-index.xml
+# LLM Manifest: https://zerocruft.pages.dev/llms.txt

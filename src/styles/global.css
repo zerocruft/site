@@ -1,0 +1,378 @@
+/* ==========================================================================
+   ZeroCruft Design System
+   Apple HIG & Fluid Interface Engineering Standard
+   8pt Spatial Grid | Dark-Mode Layered Surfaces | Mathematical Springs
+   ========================================================================== */
+
+:root {
+  /* 8pt Spatial Scale */
+  --space-1: 4px;   /* Half-unit */
+  --space-2: 8px;   /* 1 unit */
+  --space-3: 12px;
+  --space-4: 16px;  /* 2 units */
+  --space-5: 20px;
+  --space-6: 24px;  /* 3 units */
+  --space-8: 32px;  /* 4 units */
+  --space-10: 40px; /* 5 units */
+  --space-12: 48px; /* 6 units */
+  --space-16: 64px; /* 8 units */
+
+  /* Dark Surface Hierarchy (OLED Level 0 to Elevated Level 3) */
+  --color-canvas: #0a0d12;
+  --color-surface-1: rgba(22, 27, 34, 0.72);
+  --color-surface-1-solid: #161b22;
+  --color-surface-2: rgba(33, 38, 45, 0.85);
+  --color-surface-2-solid: #21262d;
+  --color-surface-3: rgba(48, 54, 61, 0.90);
+  --color-surface-code: #06090e;
+
+  /* Translucent Liquid Glass Borders */
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+  --border-focus: 1px solid rgba(255, 255, 255, 0.22);
+  --highlight-inner: inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
+  --shadow-elevated: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+  /* Typography Colors (Apple HIG Opacity Scale) */
+  --color-text-primary: rgba(255, 255, 255, 0.95);
+  --color-text-secondary: rgba(235, 235, 245, 0.65);
+  --color-text-tertiary: rgba(235, 235, 245, 0.38);
+
+  /* Accents */
+  --color-accent: #30d158;          /* Apple Terminal Emerald */
+  --color-accent-hover: #38e464;
+  --color-accent-subtle: rgba(48, 209, 88, 0.12);
+  --color-accent-border: rgba(48, 209, 88, 0.28);
+  --color-youtube: #ff3333;
+  --color-youtube-subtle: rgba(255, 51, 51, 0.12);
+
+  /* Font Stacks */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Geist", -system-ui, sans-serif;
+  --font-mono: "SF Mono", "Geist Mono", "JetBrains Mono", Menlo, Consolas, Monaco, monospace;
+
+  /* Mathematically Calibrated Spring Physics */
+  /* Micro: 180ms critically damped for buttons and switches */
+  --spring-micro: all 180ms cubic-bezier(0.2, 0, 0, 1);
+  /* Nav: 300ms slight cushion for hover states and cards */
+  --spring-nav: all 300ms cubic-bezier(0.16, 1.0, 0.3, 1.0);
+  /* Pop: 350ms 2.8% overshoot for badges and emphasis */
+  --spring-pop: all 350ms cubic-bezier(0.16, 1.0, 0.3, 1.028);
+
+  /* Continuous Curvature (G2 Squircles) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 9999px;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(48, 209, 88, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 100% 30%, rgba(56, 189, 248, 0.03) 0%, transparent 40%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Apple HIG Dynamic Typography Scale */
+h1, .text-large-title {
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+h2, .text-title-1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+h3, .text-title-2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+}
+
+h4, .text-headline {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+p, .text-body {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--color-text-secondary);
+}
+
+.text-subhead {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-text-secondary);
+}
+
+.text-footnote {
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  color: var(--color-text-tertiary);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Common Layout Elements */
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* Apple HIG Interactive Touch Target Rules */
+a, button {
+  touch-action: manipulation;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Surface Cards */
+.card-glass {
+  background: var(--color-surface-1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: var(--border-subtle);
+  box-shadow: var(--highlight-inner);
+  border-radius: var(--radius-lg);
+  transition: var(--spring-nav);
+}
+
+.card-glass:hover {
+  background: var(--color-surface-2);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+/* Interactive Buttons (Min 44x44pt click target) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 var(--space-5);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: none;
+  transition: var(--spring-micro);
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+.btn-youtube {
+  background: var(--color-youtube);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(255, 51, 51, 0.25);
+}
+
+.btn-youtube:hover {
+  background: #ff4747;
+  box-shadow: 0 6px 20px rgba(255, 51, 51, 0.35);
+}
+
+.btn-secondary {
+  background: var(--color-surface-2);
+  color: var(--color-text-primary);
+  border: var(--border-subtle);
+  box-shadow: var(--highlight-inner);
+}
+
+.btn-secondary:hover {
+  background: var(--color-surface-3);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface-1);
+  color: var(--color-text-primary);
+}
+
+/* Badge / Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 28px;
+  padding: 0 var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  border: var(--border-subtle);
+  color: var(--color-text-secondary);
+}
+
+.pill-accent {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
+  color: var(--color-accent);
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* High-Contrast Terminal / Code Snippets */
+.terminal-block {
+  background: var(--color-surface-code);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: var(--border-subtle);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+
+.terminal-body {
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #e6edf3;
+  overflow-x: auto;
+}
+
+/* Copy Button */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  border: var(--border-subtle);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--spring-micro);
+}
+
+.copy-btn:hover {
+  background: var(--color-surface-3);
+  color: var(--color-text-primary);
+}
+
+.copy-btn:active {
+  transform: scale(0.95);
+}
+
+.copy-btn.copied {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
+  color: var(--color-accent);
+}

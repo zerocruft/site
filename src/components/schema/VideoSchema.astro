@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  videoId: string;
+  uploadDate: string | Date;
+  duration?: string; // ISO 8601, e.g. "PT10M30S"
+  thumbnailUrl?: string;
+  siteUrl?: string;
+}
+
+const {
+  title,
+  description,
+  videoId,
+  uploadDate,
+  duration,
+  thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  siteUrl = "https://zerocruft.pages.dev"
+} = Astro.props;
+
+const isoDate = uploadDate instanceof Date ? uploadDate.toISOString() : new Date(uploadDate).toISOString();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": title,
+  "description": description,
+  "thumbnailUrl": [
+    thumbnailUrl,
+    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  ],
+  "uploadDate": isoDate,
+  ...(duration ? { "duration": duration } : {}),
+  "embedUrl": `https://www.youtube-nocookie.com/embed/${videoId}`,
+  "contentUrl": `https://www.youtube.com/watch?v=${videoId}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZeroCruft",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/brand-avatar.png`
+    }
+  }
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

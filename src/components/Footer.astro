@@ -1,0 +1,188 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-brand">
+          <img
+            src="/brand-avatar.png"
+            alt="ZeroCruft Logo"
+            width="28"
+            height="28"
+            class="footer-avatar"
+          />
+          <span class="footer-name">ZeroCruft</span>
+        </div>
+        <p class="text-footnote footer-tagline">
+          Anti-bloat engineering, testing under constraints, terminal receipts, and squeezing maximum utility out of Linux and raw silicon.
+        </p>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="/#manifesto" class="footer-link">Manifesto</a></li>
+            <li><a href="/#launch" class="footer-link">Status & Hardware</a></li>
+            <li><a href="/#receipts" class="footer-link">Terminal Receipts</a></li>
+            <li><a href="/rss.xml" class="footer-link">RSS Feed</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Channel & AI</h4>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://www.youtube.com/@zerocruft"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link"
+              >
+                YouTube (@zerocruft)
+              </a>
+            </li>
+            <li><a href="/llms.txt" class="footer-link font-mono">llms.txt (GEO)</a></li>
+            <li><a href="/llms-full.txt" class="footer-link font-mono">llms-full.txt</a></li>
+            <li><a href="/sitemap-index.xml" class="footer-link font-mono">sitemap.xml</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:zerocruft@proton.me" class="footer-link font-mono">
+                zerocruft@proton.me
+              </a>
+            </li>
+            <li><span class="text-footnote color-tertiary">Strict Zero-Sponsor Integrity</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-meta">
+        <span class="text-footnote">© {currentYear} ZeroCruft. All receipts reproducible.</span>
+      </div>
+      <div class="footer-badges">
+        <span class="pill font-mono text-footnote">0 kB Client JS</span>
+        <span class="pill font-mono text-footnote">Cloudflare Edge</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    background: #06080b;
+    border-top: var(--border-subtle);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 320px 1fr;
+    }
+  }
+
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .footer-avatar {
+    border-radius: 50%;
+  }
+
+  .footer-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .footer-tagline {
+    line-height: 1.5;
+    max-width: 280px;
+  }
+
+  .footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .footer-heading {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: var(--spring-micro);
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  .footer-link:hover {
+    color: var(--color-text-primary);
+    transform: translateX(2px);
+  }
+
+  .color-tertiary {
+    color: var(--color-text-tertiary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-top: var(--space-6);
+    border-top: var(--border-subtle);
+  }
+
+  .footer-badges {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+</style>

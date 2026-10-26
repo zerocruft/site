@@ -1,0 +1,503 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LaunchAlert from '../components/LaunchAlert.astro';
+import CopyButton from '../components/CopyButton.astro';
+import { getCollection } from 'astro:content';
+
+let guides: any[] = [];
+try {
+  guides = await getCollection('guides', ({ data }) => !data.draft);
+} catch {
+  guides = [];
+}
+
+const sampleSysctl = `# /etc/sysctl.d/99-zerocruft-lowram.conf
+# ZeroCruft Low-RAM Silicon Optimization
+# Verified on Linux 6.x under extreme memory pressure
+
+# Reduce aggressive swapping while maintaining reclaim elasticity
+vm.swappiness = 10
+
+# Retain directory/inode cache for instant terminal responsiveness
+vm.vfs_cache_pressure = 50
+
+# Flusher thread tuning: prevent massive write stalls on slow eMMC/SATA
+vm.dirty_background_ratio = 5
+vm.dirty_ratio = 10
+
+# Disable artificial watermark spikes that trigger premature kswapd thrash
+vm.watermark_boost_factor = 0
+vm.watermark_scale_factor = 125
+
+# Enforce strict overcommit limits to prevent OOM slaughter
+vm.overcommit_memory = 0`;
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-avatar-wrapper">
+        <img
+          src="/brand-avatar.png"
+          alt="ZeroCruft Official Channel Avatar"
+          width="112"
+          height="112"
+          class="hero-avatar"
+        />
+        <div class="hero-glow"></div>
+      </div>
+
+      <div class="hero-pill-row">
+        <a
+          href="https://www.youtube.com/@zerocruft"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pill pill-youtube-link"
+        >
+          <span class="pill-dot youtube-dot"></span>
+          YouTube @zerocruft
+        </a>
+        <span class="pill font-mono">Arch Linux • Raw Silicon</span>
+      </div>
+
+      <h1 class="hero-title">
+        Anti-Bloat Engineering.<br />
+        <span class="text-gradient">Terminal Receipts.</span><br />
+        Raw Silicon.
+      </h1>
+
+      <p class="hero-subtitle">
+        We do not produce synthetic fluff or sponsored benchmark graphs. ZeroCruft stress-tests real computing under strict thermal, memory, and hardware constraints—stripping away modern software cruelty to extract maximum utility from Linux and potato hardware.
+      </p>
+
+      <div class="hero-actions">
+        <a
+          href="https://www.youtube.com/@zerocruft"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Subscribe on YouTube</span>
+        </a>
+
+        <a href="#manifesto" class="btn btn-secondary">
+          <span>Read Manifesto</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+
+        <a href="/llms.txt" class="btn btn-ghost font-mono text-footnote">
+          <span>llms.txt</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video #1 Launch Alert (Constraint: ZERO fake data) -->
+  <div class="container">
+    <LaunchAlert />
+  </div>
+
+  <!-- The Anti-Bloat Manifesto -->
+  <section id="manifesto" class="manifesto-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill pill-accent">THE CORE DIRECTIVES</span>
+        <h2 class="text-title-1 section-title">The Anti-Bloat Manifesto</h2>
+        <p class="text-body section-desc">
+          Modern computing has substituted memory bandwidth for discipline. ZeroCruft stands for four uncompromising engineering truths.
+        </p>
+      </div>
+
+      <div class="manifesto-grid">
+        <div class="card-glass manifesto-card">
+          <div class="manifesto-num font-mono">01</div>
+          <h3 class="text-headline manifesto-card-title">Constraint is the True Benchmark</h3>
+          <p class="text-body manifesto-card-desc">
+            Any software can seem smooth when fed 64GB of DDR5 and a 24-core CPU. Real engineering begins when resources are finite. If a tool cannot run gracefully on a 10-year-old dual-core, it is not progressive—it is negligent.
+          </p>
+        </div>
+
+        <div class="card-glass manifesto-card">
+          <div class="manifesto-num font-mono">02</div>
+          <h3 class="text-headline manifesto-card-title">Terminal Receipts Over Sentiments</h3>
+          <p class="text-body manifesto-card-desc">
+            No synthetic manufacturer slides. No promotional cherry-picking. Every optimization claim on ZeroCruft is backed by verifiable <code class="inline-code">perf stat</code>, frame-time percentile tails, and raw shell logs.
+          </p>
+        </div>
+
+        <div class="card-glass manifesto-card">
+          <div class="manifesto-num font-mono">03</div>
+          <h3 class="text-headline manifesto-card-title">Eradicate Software Cruelty</h3>
+          <p class="text-body manifesto-card-desc">
+            Bloatware, background telemetry, Electron wrappers, and unnecessary daemon layers degrade silicon lifespan and rob users of agency. We strip systems down to clean kernel primitives and honest binaries.
+          </p>
+
+        <div class="card-glass manifesto-card">
+          <div class="manifesto-num font-mono">04</div>
+          <h3 class="text-headline manifesto-card-title">The Zero Client JS Ideal</h3>
+          <p class="text-body manifesto-card-desc">
+            Deliver maximum utility with the absolute minimum computational overhead. This platform ships 0 kB client-side framework JavaScript, loads instantly on low-bandwidth cellular, and respects user battery cycles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Terminal Receipts Preview -->
+  <section id="receipts" class="receipts-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill font-mono">VERIFIABLE CONFIG</span>
+        <h2 class="text-title-1 section-title">Low-RAM Kernel Tuning Receipt</h2>
+        <p class="text-body section-desc">
+          A sample snippet from our constraint testing lab. Copy this configuration to stabilize Linux memory pressure on low-spec potato hardware.
+        </p>
+      </div>
+
+      <div class="terminal-block">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <span class="font-mono text-footnote">/etc/sysctl.d/99-zerocruft-lowram.conf</span>
+          <CopyButton text={sampleSysctl} label="Copy Sysctl" />
+        </div>
+        <pre class="terminal-body"><code>{sampleSysctl}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Companion Guides Archive -->
+  <section id="guides" class="guides-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill pill-accent">COMPANION HUB</span>
+        <h2 class="text-title-1 section-title">Video Companion Guides</h2>
+        <p class="text-body section-desc">
+          When videos premiere on YouTube, full reproducible companion guides, terminal logs, and JVM flags populate here.
+        </p>
+      </div>
+
+      {guides.length > 0 ? (
+        <div class="guides-grid">
+          {guides.map((guide) => (
+            <a href={`/guides/${guide.id}`} class="card-glass guide-card">
+              <span class="font-mono text-footnote guide-date">
+                {guide.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </span>
+              <h3 class="text-title-2 guide-title">{guide.data.title}</h3>
+              <p class="text-body guide-desc">{guide.data.description}</p>
+              <div class="guide-footer">
+                <span class="guide-link-cta font-mono text-footnote">View Terminal Receipts →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="card-glass empty-guides-card">
+          <div class="empty-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="empty-icon">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="text-title-2 empty-title">Companion Pipeline Ready</h3>
+          <p class="text-body empty-desc">
+            Video #1 is currently undergoing rigorous hardware constraint benchmarks. The moment the video goes live on <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="link-inline">@zerocruft</a>, its full companion guide, complete with exact copy-paste configuration flags and terminal receipts, will be deployed here.
+          </p>
+          <div class="empty-actions">
+            <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Follow on YouTube
+            </a>
+            <a href="/rss.xml" class="btn btn-ghost font-mono text-footnote">
+              Subscribe to RSS Feed
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .hero-section {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-12);
+    }
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-avatar-wrapper {
+    position: relative;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-avatar {
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+    background: #0d1117;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(48, 209, 88, 0.25) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  .pill-youtube-link {
+    background: var(--color-youtube-subtle);
+    border-color: rgba(255, 51, 51, 0.25);
+    color: #ff6666;
+    transition: var(--spring-micro);
+  }
+
+  .pill-youtube-link:hover {
+    background: rgba(255, 51, 51, 0.20);
+    color: #ff8080;
+  }
+
+  .youtube-dot {
+    background: #ff3333;
+    box-shadow: 0 0 6px #ff3333;
+  }
+
+  .hero-title {
+    margin-bottom: var(--space-5);
+    max-width: 840px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 30%, #30d158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    max-width: 680px;
+    margin-bottom: var(--space-8);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-10);
+  }
+
+  .section-title {
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-desc {
+    color: var(--color-text-secondary);
+  }
+
+  /* Manifesto Section */
+  .manifesto-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: var(--border-subtle);
+  }
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .manifesto-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .manifesto-card {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .manifesto-num {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.05em;
+  }
+
+  .manifesto-card-title {
+    margin-bottom: var(--space-2);
+    color: var(--color-text-primary);
+  }
+
+  .manifesto-card-desc {
+    line-height: 1.6;
+  }
+
+  .inline-code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #e6edf3;
+  }
+
+  /* Receipts Section */
+  .receipts-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-top: var(--border-subtle);
+  }
+
+  /* Guides Section */
+  .guides-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+    border-top: var(--border-subtle);
+  }
+
+  .empty-guides-card {
+    padding: var(--space-8);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .empty-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--color-surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    color: var(--color-accent);
+  }
+
+  .empty-title {
+    margin-bottom: var(--space-2);
+  }
+
+  .empty-desc {
+    margin-bottom: var(--space-6);
+    line-height: 1.6;
+  }
+
+  .empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+
+  .link-inline {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .guides-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .guide-card {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .guide-date {
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-2);
+  }
+
+  .guide-title {
+    margin-bottom: var(--space-2);
+  }
+
+  .guide-desc {
+    margin-bottom: var(--space-4);
+  }
+
+  .guide-footer {
+    margin-top: auto;
+  }
+
+  .guide-link-cta {
+    color: var(--color-accent);
+  }
+</style>

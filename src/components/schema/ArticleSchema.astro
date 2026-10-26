@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  pubDate: string | Date;
+  updatedDate?: string | Date;
+  authorName?: string;
+  siteUrl?: string;
+  keywords?: string[];
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  pubDate,
+  updatedDate,
+  authorName = "ZeroCruft",
+  siteUrl = "https://zerocruft.pages.dev",
+  keywords = []
+} = Astro.props;
+
+const isoPubDate = pubDate instanceof Date ? pubDate.toISOString() : new Date(pubDate).toISOString();
+const isoModDate = updatedDate
+  ? (updatedDate instanceof Date ? updatedDate.toISOString() : new Date(updatedDate).toISOString())
+  : isoPubDate;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": title,
+  "description": description,
+  "url": canonicalUrl,
+  "datePublished": isoPubDate,
+  "dateModified": isoModDate,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "author": {
+    "@type": "Organization",
+    "name": authorName,
+    "url": "https://www.youtube.com/@zerocruft"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZeroCruft",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/brand-avatar.png`
+    }
+  },
+  ...(keywords.length > 0 ? { "keywords": keywords.join(", ") } : {})
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

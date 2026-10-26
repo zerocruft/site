@@ -1,0 +1,32 @@
+---
+interface Props {
+  siteUrl?: string;
+}
+
+const { siteUrl = "https://zerocruft.pages.dev" } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ZeroCruft",
+  "alternateName": ["@zerocruft", "Zero Cruft"],
+  "url": siteUrl,
+  "logo": `${siteUrl}/brand-avatar.png`,
+  "image": `${siteUrl}/brand-avatar.png`,
+  "description": "Anti-bloat engineering, testing under constraints, terminal receipts, and squeezing maximum utility out of Linux and raw silicon.",
+  "email": "zerocruft@proton.me",
+  "sameAs": [
+    "https://www.youtube.com/@zerocruft"
+  ],
+  "knowsAbout": [
+    "Linux Systems Optimization",
+    "Kernel Tuning",
+    "Resource-Constrained Computing",
+    "Low-Spec Hardware Performance",
+    "Minimalist Software Engineering",
+    "Anti-bloat Architecture",
+    "Terminal Tooling"
+  ]
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
