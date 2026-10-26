@@ -9,7 +9,7 @@ The official creator platform and companion hub for **ZeroCruft** ([@zerocruft o
 ## Architecture & Principles
 
 - **Framework**: [Astro 5](https://astro.build/) (Static Site Generation).
-- **Hosting**: Cloudflare Pages (`https://zerocruft.pages.dev`).
+- **Hosting**: Cloudflare Pages (`https://site.zerocruft.workers.dev`).
 - **Footprint**: **0 kB client-side framework JavaScript** at baseline. Pure semantic HTML, responsive modern CSS, and lightweight progressive enhancements.
 - **Design System**: Apple Human Interface Guidelines (HIG) standard with dark-mode layered surfaces (Levels 0–3), 8pt spatial grid, continuous curvature, and mathematically calibrated spring physics (`cubic-bezier(0.16, 1.0, 0.3, 1.0)`).
 - **Zero Fake Data Integrity**: No placeholder thumbnails, no fake view counts. Only authentic testing rigs, raw terminal receipts, and real reproducible benchmarks.

@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ site }) => {
-  const baseUrl = site?.toString().replace(/\/$/, '') || 'https://zerocruft.pages.dev';
+  const baseUrl = site?.toString().replace(/\/$/, '') || 'https://site.zerocruft.workers.dev';
   let guides: any[] = [];
   try {
     guides = await getCollection('guides', ({ data }) => !data.draft);

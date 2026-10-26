@@ -21,5 +21,5 @@ User-agent: Applebot-Extended
 Allow: /
 
 # Sitemaps & LLM Manifests
-Sitemap: https://zerocruft.pages.dev/sitemap-index.xml
-# LLM Manifest: https://zerocruft.pages.dev/llms.txt
+Sitemap: https://site.zerocruft.workers.dev/sitemap-index.xml
+# LLM Manifest: https://site.zerocruft.workers.dev/llms.txt

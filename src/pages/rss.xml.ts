@@ -13,7 +13,7 @@ export const GET: APIRoute = async (context) => {
   return rss({
     title: 'ZeroCruft',
     description: 'Anti-bloat engineering, testing under constraints, terminal receipts, and squeezing maximum utility out of Linux and raw silicon.',
-    site: context.site || 'https://zerocruft.pages.dev',
+    site: context.site || 'https://site.zerocruft.workers.dev',
     items: guides.map((guide) => ({
       title: guide.data.title,
       pubDate: guide.data.pubDate,

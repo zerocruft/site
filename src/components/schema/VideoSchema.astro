@@ -16,7 +16,7 @@ const {
   uploadDate,
   duration,
   thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
-  siteUrl = "https://zerocruft.pages.dev"
+  siteUrl = "https://site.zerocruft.workers.dev"
 } = Astro.props;
 
 const isoDate = uploadDate instanceof Date ? uploadDate.toISOString() : new Date(uploadDate).toISOString();

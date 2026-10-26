@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://zerocruft.pages.dev',
+  site: 'https://site.zerocruft.workers.dev',
   trailingSlash: 'never',
   image: {
     service: passthroughImageService(),
