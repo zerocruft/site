@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CopyButton from '../components/CopyButton.astro';
 import { getCollection } from 'astro:content';
 
 let guides: any[] = [];
@@ -9,27 +8,6 @@ try {
 } catch {
   guides = [];
 }
-
-const sampleSysctl = `# /etc/sysctl.d/99-zerocruft-lowram.conf
-# ZeroCruft Low-RAM Silicon Optimization
-# Verified on Linux 6.x under extreme memory pressure
-
-# Reduce aggressive swapping while maintaining reclaim elasticity
-vm.swappiness = 10
-
-# Retain directory/inode cache for instant terminal responsiveness
-vm.vfs_cache_pressure = 50
-
-# Flusher thread tuning: prevent massive write stalls on slow eMMC/SATA
-vm.dirty_background_ratio = 5
-vm.dirty_ratio = 10
-
-# Disable artificial watermark spikes that trigger premature kswapd thrash
-vm.watermark_boost_factor = 0
-vm.watermark_scale_factor = 125
-
-# Enforce strict overcommit limits to prevent OOM slaughter
-vm.overcommit_memory = 0`;
 ---
 
 <BaseLayout>
@@ -147,32 +125,6 @@ vm.overcommit_memory = 0`;
             Deliver maximum utility with the absolute minimum computational overhead. This platform ships 0 kB client-side framework JavaScript, loads instantly on low-bandwidth cellular, and respects user battery cycles.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Terminal Receipts Preview -->
-  <section id="receipts" class="receipts-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="pill font-mono">VERIFIABLE CONFIG</span>
-        <h2 class="text-title-1 section-title">Low-RAM Kernel Tuning Receipt</h2>
-        <p class="text-body section-desc">
-          A sample snippet from our constraint testing lab. Copy this configuration to stabilize Linux memory pressure on low-spec potato hardware.
-        </p>
-      </div>
-
-      <div class="terminal-block">
-        <div class="terminal-header">
-          <div class="terminal-dots">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-          </div>
-          <span class="font-mono text-footnote">/etc/sysctl.d/99-zerocruft-lowram.conf</span>
-          <CopyButton text={sampleSysctl} label="Copy Sysctl" />
-        </div>
-        <pre class="terminal-body"><code>{sampleSysctl}</code></pre>
       </div>
     </div>
   </section>
@@ -397,13 +349,6 @@ vm.overcommit_memory = 0`;
     padding: var(--space-1) var(--space-2);
     border-radius: 4px;
     color: #e6edf3;
-  }
-
-  /* Receipts Section */
-  .receipts-section {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
-    border-top: var(--border-subtle);
   }
 
   /* Guides Section */
