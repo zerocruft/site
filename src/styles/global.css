@@ -5,16 +5,17 @@
    ========================================================================== */
 
 :root {
-  /* 8pt Spatial Scale */
+  /* Strict 8pt Spatial Scale (4, 8, 12, 16, 24, 32, 40, 48, 56, 64px) */
   --space-1: 4px;   /* Half-unit */
   --space-2: 8px;   /* 1 unit */
   --space-3: 12px;
   --space-4: 16px;  /* 2 units */
-  --space-5: 20px;
+  --space-5: 24px;  /* 3 units */
   --space-6: 24px;  /* 3 units */
   --space-8: 32px;  /* 4 units */
   --space-10: 40px; /* 5 units */
   --space-12: 48px; /* 6 units */
+  --space-14: 56px; /* 7 units */
   --space-16: 64px; /* 8 units */
 
   /* OKLCH 5-Tier Surface Elevation System & Chroma-Damped Accents */
@@ -96,13 +97,7 @@ body {
   flex-direction: column;
   position: relative;
   background-color: var(--color-canvas);
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(48, 209, 88, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 15% 45%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: none;
 }
 
 #main-content,
@@ -313,17 +308,17 @@ a, button {
   color: var(--color-text-primary);
 }
 
-/* Badge / Pills */
+/* Badge / Technical Tags */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  height: 28px;
+  min-height: 32px;
   padding: 0 var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--color-surface-2);
   border: var(--border-subtle);
   color: var(--color-text-secondary);
@@ -336,46 +331,43 @@ a, button {
 }
 
 .pill-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: currentColor;
-  box-shadow: 0 0 8px currentColor;
 }
 
 /* High-Contrast Terminal / Code Snippets */
 .terminal-block {
   background: var(--color-surface-code);
   border: var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
 .terminal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-3) var(--space-4);
-  background: rgba(255, 255, 255, 0.02);
+  min-height: 40px;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
   border-bottom: var(--border-subtle);
 }
 
-.terminal-dots {
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
   display: flex;
+  align-items: center;
   gap: var(--space-2);
 }
 
-.terminal-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+.terminal-prompt-user {
+  color: var(--color-accent);
 }
-
-.terminal-dot.red { background: #ff5f56; }
-.terminal-dot.yellow { background: #ffbd2e; }
-.terminal-dot.green { background: #27c93f; }
 
 .terminal-body {
   padding: var(--space-4);
