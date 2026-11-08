@@ -1,6 +1,7 @@
 # Build outputs
 dist/
 .astro/
+.powerpack/
 
 # Dependencies
 node_modules/

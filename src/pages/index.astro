@@ -63,7 +63,7 @@ vm.overcommit_memory = 0`;
 
       <h1 class="hero-title">
         Anti-Bloat Engineering.<br />
-        <span class="text-gradient">Terminal Receipts.</span><br />
+        <span class="text-accent-solid">Terminal Receipts.</span><br />
         Raw Silicon.
       </h1>
 
@@ -311,12 +311,11 @@ vm.overcommit_memory = 0`;
   .hero-title {
     margin-bottom: var(--space-5);
     max-width: 840px;
+    letter-spacing: -0.035em;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, #ffffff 30%, #30d158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .text-accent-solid {
+    color: var(--color-accent);
   }
 
   .hero-subtitle {
@@ -399,7 +398,7 @@ vm.overcommit_memory = 0`;
     font-family: var(--font-mono);
     font-size: 0.85em;
     background: rgba(255, 255, 255, 0.08);
-    padding: 2px 6px;
+    padding: var(--space-1) var(--space-2);
     border-radius: 4px;
     color: #e6edf3;
   }

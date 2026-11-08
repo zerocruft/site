@@ -18,19 +18,19 @@
   --space-16: 64px; /* 8 units */
 
   /* Dark Surface Hierarchy (OLED Level 0 to Elevated Level 3) */
-  --color-canvas: #0a0d12;
-  --color-surface-1: rgba(22, 27, 34, 0.72);
-  --color-surface-1-solid: #161b22;
-  --color-surface-2: rgba(33, 38, 45, 0.85);
-  --color-surface-2-solid: #21262d;
-  --color-surface-3: rgba(48, 54, 61, 0.90);
-  --color-surface-code: #06090e;
+  --color-canvas: #06090e;
+  --color-surface-1: rgba(18, 23, 31, 0.72);
+  --color-surface-1-solid: #12171f;
+  --color-surface-2: rgba(28, 34, 43, 0.85);
+  --color-surface-2-solid: #1c222b;
+  --color-surface-3: rgba(40, 48, 60, 0.90);
+  --color-surface-code: #05070b;
 
   /* Translucent Liquid Glass Borders */
   --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
   --border-focus: 1px solid rgba(255, 255, 255, 0.22);
-  --highlight-inner: inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
-  --shadow-elevated: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --highlight-inner: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  --shadow-elevated: 0 16px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
 
   /* Typography Colors (Apple HIG Opacity Scale) */
   --color-text-primary: rgba(255, 255, 255, 0.95);
@@ -89,7 +89,8 @@ body {
   display: flex;
   flex-direction: column;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(48, 209, 88, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, transparent 70%),
+    radial-gradient(circle at 50% 0%, rgba(48, 209, 88, 0.04) 0%, transparent 60%),
     radial-gradient(circle at 100% 30%, rgba(56, 189, 248, 0.03) 0%, transparent 40%);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -321,7 +322,7 @@ a, button {
 
 .terminal-dots {
   display: flex;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .terminal-dot {
@@ -348,7 +349,7 @@ a, button {
 .copy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   height: 32px;
   padding: 0 var(--space-3);
   font-family: var(--font-sans);
@@ -365,6 +366,28 @@ a, button {
 .copy-btn:hover {
   background: var(--color-surface-3);
   color: var(--color-text-primary);
+}
+
+/* Off-thread GPU Scroll-Driven Animation (Zero-JS) */
+@keyframes surface-reveal {
+  from {
+    opacity: 0.85;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-reveal {
+      animation: surface-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
 }
 
 .copy-btn:active {
