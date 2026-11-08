@@ -1,0 +1,185 @@
+---
+// Hardware Test Rig Telemetry Strip
+// Authentic Reproducible Benchmarks Specification
+---
+
+<div class="rig-specs-root">
+  <div class="rig-container container">
+    <div class="rig-card card-glass-elevated">
+      <div class="rig-header">
+        <div class="rig-header-left">
+          <span class="beacon-pulse" aria-hidden="true"></span>
+          <span class="rig-tag font-mono">STANDARDIZED BENCHMARK RIG</span>
+        </div>
+        <div class="rig-header-right font-mono">
+          <span>RECEIPT TARGET: BARE SILICON</span>
+        </div>
+      </div>
+
+      <div class="specs-grid">
+        <!-- CPU Spec -->
+        <div class="spec-cell">
+          <div class="spec-meta font-mono">
+            <span class="spec-key">[CPU]</span>
+            <span class="spec-bus font-mono">16C / 32T</span>
+          </div>
+          <div class="spec-name font-mono">AMD Zen 4 Ryzen 9</div>
+          <div class="spec-detail font-mono">5.7 GHz Boost • 64MB L3 Cache</div>
+        </div>
+
+        <!-- RAM Spec -->
+        <div class="spec-cell">
+          <div class="spec-meta font-mono">
+            <span class="spec-key">[MEM]</span>
+            <span class="spec-bus font-mono">SUB-60NS</span>
+          </div>
+          <div class="spec-name font-mono">64GB DDR5-6000 ECC</div>
+          <div class="spec-detail font-mono">1:1 FCLK • CL30 Ultra-Low Latency</div>
+        </div>
+
+        <!-- Storage Spec -->
+        <div class="spec-cell">
+          <div class="spec-meta font-mono">
+            <span class="spec-key">[NVME]</span>
+            <span class="spec-bus font-mono">IO_URING</span>
+          </div>
+          <div class="spec-name font-mono">PCIe Gen4 x4 NVMe</div>
+          <div class="spec-detail font-mono">Direct-I/O Bypass • 7,450 MB/s Read</div>
+        </div>
+
+        <!-- OS & Kernel Spec -->
+        <div class="spec-cell">
+          <div class="spec-meta font-mono">
+            <span class="spec-key">[KERNEL]</span>
+            <span class="spec-bus font-mono text-accent">0 kB CLIENT JS</span>
+          </div>
+          <div class="spec-name font-mono">Arch Linux Kernel Zen</div>
+          <div class="spec-detail font-mono">PREEMPT_RT • MuQSS Tuning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .rig-specs-root {
+    width: 100%;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-8);
+  }
+
+  .rig-card {
+    padding: var(--space-4) var(--space-5);
+    background: var(--surface-1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-lg);
+  }
+
+  .rig-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .rig-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .beacon-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent);
+  }
+
+  .rig-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .rig-header-right {
+    font-size: 0.6875rem;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 640px) {
+    .specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .specs-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  .spec-cell {
+    padding: var(--space-3);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: var(--spring-micro);
+  }
+
+  .spec-cell:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
+  .spec-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.6875rem;
+  }
+
+  .spec-key {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .spec-bus {
+    color: var(--color-text-tertiary);
+    font-size: 0.625rem;
+  }
+
+  .spec-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .spec-detail {
+    font-size: 0.6875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+</style>

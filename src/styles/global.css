@@ -94,12 +94,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: var(--color-canvas);
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, transparent 70%),
-    radial-gradient(circle at 50% 0%, rgba(48, 209, 88, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 100% 30%, rgba(56, 189, 248, 0.03) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(48, 209, 88, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 15% 45%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+#main-content,
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* Accessibility: Respect Reduced Motion */
@@ -209,6 +219,31 @@ a, button {
   background: var(--color-surface-2);
   border-color: rgba(255, 255, 255, 0.14);
   transform: translateY(-2px);
+}
+
+/* Specular Glass Elevation (Level 2 Apple HIG) */
+.card-glass-elevated {
+  background: var(--surface-1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: var(--spring-nav);
+}
+
+.card-glass-elevated:hover {
+  background: var(--surface-2);
+  border-color: rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.26);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 28px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 24px rgba(48, 209, 88, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 /* Interactive Buttons (Min 44x44pt click target) */
