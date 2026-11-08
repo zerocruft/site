@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LaunchAlert from '../components/LaunchAlert.astro';
 import CopyButton from '../components/CopyButton.astro';
 import { getCollection } from 'astro:content';
 
@@ -68,7 +67,7 @@ vm.overcommit_memory = 0`;
       </h1>
 
       <p class="hero-subtitle">
-        We do not produce synthetic fluff or sponsored benchmark graphs. ZeroCruft stress-tests real computing under strict thermal, memory, and hardware constraints—stripping away modern software cruelty to extract maximum utility from Linux and potato hardware.
+        Low-level systems engineering and Linux performance analysis. We inspect NVMe I/O efficiency, tune kernel memory parameters, and establish reproducible benchmark receipts without unnecessary abstraction layers.
       </p>
 
       <div class="hero-actions">
@@ -104,10 +103,7 @@ vm.overcommit_memory = 0`;
     </div>
   </section>
 
-  <!-- Video #1 Launch Alert (Constraint: ZERO fake data) -->
-  <div class="container">
-    <LaunchAlert />
-  </div>
+  <!-- Video #1 Launch Alert (Constraint: ZERO fake data removed) -->
 
   <!-- The Anti-Bloat Manifesto -->
   <section id="manifesto" class="manifesto-section">
