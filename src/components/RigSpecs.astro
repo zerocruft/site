@@ -1,177 +1,212 @@
 ---
-// Hardware Test Rig Telemetry Strip
+// Hardware Test Rig Telemetry Matrix
 // Authentic Reproducible Benchmarks Specification
+// Blueprint: spec-matrix
 ---
 
-<div class="rig-specs-root">
-  <div class="rig-container container">
-    <div class="rig-card card-glass-elevated">
-      <div class="rig-header">
-        <div class="rig-header-left">
-          <span class="rig-tag font-mono">[STANDARDIZED BENCHMARK RIG]</span>
+<section class="rig-specs-root">
+  <div class="container">
+    <div class="spec-matrix-container font-mono">
+      <!-- Matrix Header -->
+      <div class="spec-matrix-header">
+        <div class="header-left">
+          <span class="matrix-tag text-accent font-mono">[STANDARDIZED BENCHMARK RIG]</span>
+          <span class="matrix-sub font-mono">ZEN 4 ARCHITECTURE</span>
         </div>
-        <div class="rig-header-right font-mono">
+        <div class="header-right font-mono">
           <span>RECEIPT TARGET: BARE SILICON</span>
         </div>
       </div>
 
-      <div class="specs-grid">
+      <!-- Hairline Divided Grid (Zero Card Soup) -->
+      <div class="spec-matrix-grid">
         <!-- CPU Spec -->
-        <div class="spec-cell">
-          <div class="spec-meta font-mono">
-            <span class="spec-key">[CPU]</span>
-            <span class="spec-bus font-mono">16C / 32T</span>
+        <div class="spec-matrix-cell">
+          <div class="cell-label font-mono">
+            <span class="key-id text-accent">[CPU]</span>
+            <span class="bus-meta">16C / 32T</span>
           </div>
-          <div class="spec-name font-mono">AMD Zen 4 Ryzen 9</div>
-          <div class="spec-detail font-mono">5.7 GHz Boost • 64MB L3 Cache</div>
+          <div class="cell-value font-mono">AMD Zen 4 Ryzen 9</div>
+          <div class="cell-detail font-mono">5.7 GHz Boost • 64MB L3 Cache</div>
         </div>
 
         <!-- RAM Spec -->
-        <div class="spec-cell">
-          <div class="spec-meta font-mono">
-            <span class="spec-key">[MEM]</span>
-            <span class="spec-bus font-mono">SUB-60NS</span>
+        <div class="spec-matrix-cell">
+          <div class="cell-label font-mono">
+            <span class="key-id text-accent">[MEM]</span>
+            <span class="bus-meta">SUB-60NS</span>
           </div>
-          <div class="spec-name font-mono">64GB DDR5-6000 ECC</div>
-          <div class="spec-detail font-mono">1:1 FCLK • CL30 Ultra-Low Latency</div>
+          <div class="cell-value font-mono">64GB DDR5-6000 ECC</div>
+          <div class="cell-detail font-mono">1:1 FCLK • CL30 Ultra-Low Latency</div>
         </div>
 
         <!-- Storage Spec -->
-        <div class="spec-cell">
-          <div class="spec-meta font-mono">
-            <span class="spec-key">[NVME]</span>
-            <span class="spec-bus font-mono">IO_URING</span>
+        <div class="spec-matrix-cell">
+          <div class="cell-label font-mono">
+            <span class="key-id text-accent">[NVME]</span>
+            <span class="bus-meta">IO_URING</span>
           </div>
-          <div class="spec-name font-mono">PCIe Gen4 x4 NVMe</div>
-          <div class="spec-detail font-mono">Direct-I/O Bypass • 7,450 MB/s Read</div>
+          <div class="cell-value font-mono">PCIe Gen4 x4 NVMe</div>
+          <div class="cell-detail font-mono">Direct-I/O Bypass • 7,450 MB/s</div>
         </div>
 
         <!-- OS & Kernel Spec -->
-        <div class="spec-cell">
-          <div class="spec-meta font-mono">
-            <span class="spec-key">[KERNEL]</span>
-            <span class="spec-bus font-mono text-accent">0 kB CLIENT JS</span>
+        <div class="spec-matrix-cell">
+          <div class="cell-label font-mono">
+            <span class="key-id text-accent">[KERNEL]</span>
+            <span class="bus-meta text-accent">0 kB CLIENT JS</span>
           </div>
-          <div class="spec-name font-mono">Arch Linux Kernel Zen</div>
-          <div class="spec-detail font-mono">PREEMPT_RT • EEVDF Tuning</div>
+          <div class="cell-value font-mono">Arch Linux Kernel Zen</div>
+          <div class="cell-detail font-mono">PREEMPT_RT • EEVDF Tuning</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .rig-specs-root {
     width: 100%;
-    padding-top: var(--space-4);
-    padding-bottom: var(--space-8);
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-10);
   }
 
-  .rig-card {
-    padding: var(--space-4) var(--space-4);
-    background: var(--surface-1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  .spec-matrix-container {
+    width: 100%;
+    background: #08090c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
-    box-sizing: border-box;
+    overflow: hidden;
   }
 
-  .rig-header {
+  .spec-matrix-header {
+    height: 48px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 40px;
-    padding-bottom: var(--space-2);
-    margin-bottom: var(--space-3);
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+    padding: 0 var(--space-5);
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.75rem;
   }
 
-  .rig-header-left {
+  .header-left {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 
-  .rig-tag {
-    font-size: 0.8125rem;
+  .matrix-tag {
     font-weight: 600;
-    color: var(--color-accent);
     letter-spacing: 0.05em;
   }
 
-  .rig-header-right {
-    font-size: 0.75rem;
+  .matrix-sub {
+    color: var(--color-text-tertiary);
+    font-size: 0.6875rem;
+  }
+
+  .header-right {
+    font-size: 0.6875rem;
     color: var(--color-text-tertiary);
     letter-spacing: 0.05em;
   }
 
-  .specs-grid {
+  /* 4-Column Hairline Grid */
+  .spec-matrix-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-3);
   }
 
   @media (min-width: 640px) {
-    .specs-grid {
+    .spec-matrix-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
-    .specs-grid {
+    .spec-matrix-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
     }
   }
 
-  .spec-cell {
-    padding: var(--space-3);
-    background: rgba(0, 0, 0, 0.35);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    border-radius: var(--radius-sm);
+  .spec-matrix-cell {
+    min-height: 120px;
+    padding: var(--space-5);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
     transition: var(--spring-micro);
   }
 
-  .spec-cell:hover {
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  @media (min-width: 640px) {
+    .spec-matrix-cell:nth-child(odd) {
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .spec-matrix-cell:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
   }
 
-  .spec-meta {
+  @media (min-width: 1024px) {
+    .spec-matrix-cell {
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: none;
+    }
+    .spec-matrix-cell:last-child {
+      border-right: none;
+    }
+  }
+
+  .spec-matrix-cell:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .cell-label {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 0.6875rem;
   }
 
-  .spec-key {
-    color: var(--color-accent);
-    font-weight: 700;
+  .key-id {
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
 
-  .spec-bus {
+  .bus-meta {
     color: var(--color-text-tertiary);
     font-size: 0.625rem;
   }
 
-  .spec-name {
-    font-size: 0.875rem;
+  .cell-value {
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    letter-spacing: -0.01em;
   }
 
-  .spec-detail {
+  .cell-detail {
     font-size: 0.75rem;
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .text-accent {
     color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .spec-matrix-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
+    .spec-matrix-cell:last-child {
+      border-bottom: none;
+    }
   }
 </style>

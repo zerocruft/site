@@ -58,7 +58,7 @@ const currentYear = new Date().getFullYear();
                 zerocruft@proton.me
               </a>
             </li>
-            <li><span class="text-footnote color-tertiary">Strict Zero-Sponsor Integrity</span></li>
+            <li><span class="footer-note font-mono text-footnote color-tertiary">Strict Zero-Sponsor Integrity</span></li>
           </ul>
         </div>
       </div>
@@ -168,6 +168,14 @@ const currentYear = new Date().getFullYear();
 
   .footer-link:hover {
     color: var(--color-text-primary);
+  }
+
+  .footer-note {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 var(--space-1);
+    font-size: 0.8125rem;
   }
 
   .color-tertiary {

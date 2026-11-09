@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node -e \"const fs=require('fs');const p='dist/index.html';if(fs.existsSync(p)){let h=fs.readFileSync(p,'utf8');h=h.replaceAll('href=\\\"/_astro/','href=\\\"./_astro/').replaceAll('src=\\\"/brand-avatar','src=\\\"./brand-avatar');fs.writeFileSync(p,h);}\"",
     "preview": "astro preview",
     "astro": "astro"
   },

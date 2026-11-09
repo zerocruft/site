@@ -13,23 +13,16 @@ try {
 ---
 
 <BaseLayout>
-  <!-- Split Hero Section -->
+  <!-- Split Hero Section (Blueprint: hero-systems) -->
   <section class="hero-section">
-    <div class="container hero-container">
+    <div class="container">
       <div class="hero-split-grid">
-        <!-- Left Column: Typography & CTAs -->
+        <!-- Left Column: Editorial Typography & Actions -->
         <div class="hero-content">
-          <div class="hero-badge-strip">
-            <a
-              href="https://www.youtube.com/@zerocruft"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="pill pill-youtube-link"
-            >
-              YouTube @zerocruft
-            </a>
-            <span class="pill font-mono">Arch Linux // Zen 4</span>
-            <span class="pill font-mono pill-zero-js">0 kB JS</span>
+          <div class="hero-eyebrow font-mono">
+            <span class="eyebrow-badge">ARCH LINUX // ZEN 4</span>
+            <span class="eyebrow-sep">•</span>
+            <span class="eyebrow-stat">0 kB CLIENT RUNTIME</span>
           </div>
 
           <h1 class="hero-title">
@@ -73,7 +66,7 @@ try {
             </a>
           </div>
 
-          <!-- Micro Hardware Telemetry Receipt -->
+          <!-- Micro Hardware Telemetry Strip -->
           <div class="hero-telemetry-row font-mono">
             <span class="telemetry-item">DIRECT-I/O BYPASS</span>
             <span class="telemetry-sep">•</span>
@@ -83,66 +76,60 @@ try {
           </div>
         </div>
 
-        <!-- Right Column: Interactive Pure CSS Terminal Receipt -->
-        <div class="hero-terminal-col">
+        <!-- Right Column: Authentic Preformatted Receipt -->
+        <div class="hero-receipt-col">
           <TerminalReceipt />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hardware Benchmark Rig Telemetry Strip -->
+  <!-- Hardware Benchmark Rig Telemetry Matrix (spec-matrix) -->
   <RigSpecs />
 
-  <!-- The Anti-Bloat Manifesto -->
+  <!-- The Anti-Bloat Manifesto (Blueprint: manifesto-editorial) -->
   <section id="manifesto" class="manifesto-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="text-title-1 section-title">The Anti-Bloat Manifesto</h2>
-        <p class="text-body section-desc">
+        <span class="section-eyebrow font-mono text-accent">THE ZERO CRUFT DIRECTIVES</span>
+        <h2 class="section-title">The Anti-Bloat Manifesto</h2>
+        <p class="section-desc">
           Modern computing has substituted memory bandwidth for discipline. ZeroCruft stands for four uncompromising engineering truths.
         </p>
       </div>
 
-      <div class="manifesto-list">
-        <article class="manifesto-entry">
-          <div class="manifesto-num font-mono">01</div>
-          <div class="manifesto-body">
-            <h3 class="manifesto-heading">Constraint is the True Benchmark</h3>
-            <p class="text-body manifesto-text">
-              Any software can seem smooth when fed 64GB of DDR5 and a 24-core CPU. Real engineering begins when resources are finite. If a tool cannot run gracefully on a 10-year-old dual-core, it is not progressive—it is negligent.
-            </p>
-          </div>
+      <!-- Typographic Editorial Table (Zero Card Soup) -->
+      <div class="manifesto-table">
+        <article class="manifesto-row">
+          <div class="row-num font-mono">01</div>
+          <h3 class="row-title">Constraint is the True Benchmark</h3>
+          <p class="row-statement">
+            Any software can seem smooth when fed 64GB of DDR5 and a 24-core CPU. Real engineering begins when resources are finite. If a tool cannot run gracefully on a 10-year-old dual-core, it is not progressive—it is negligent.
+          </p>
         </article>
 
-        <article class="manifesto-entry">
-          <div class="manifesto-num font-mono">02</div>
-          <div class="manifesto-body">
-            <h3 class="manifesto-heading">Terminal Receipts Over Sentiments</h3>
-            <p class="text-body manifesto-text">
-              No synthetic manufacturer slides. No promotional cherry-picking. Every optimization claim on ZeroCruft is backed by verifiable <code class="inline-code">perf stat</code>, frame-time percentile tails, and raw shell logs.
-            </p>
-          </div>
+        <article class="manifesto-row">
+          <div class="row-num font-mono">02</div>
+          <h3 class="row-title">Terminal Receipts Over Sentiments</h3>
+          <p class="row-statement">
+            No synthetic manufacturer slides. No promotional cherry-picking. Every optimization claim on ZeroCruft is backed by verifiable <code class="inline-code">perf stat</code>, frame-time percentile tails, and raw shell logs.
+          </p>
         </article>
 
-        <article class="manifesto-entry">
-          <div class="manifesto-num font-mono">03</div>
-          <div class="manifesto-body">
-            <h3 class="manifesto-heading">Eradicate Software Cruelty</h3>
-            <p class="text-body manifesto-text">
-              Bloatware, background telemetry, Electron wrappers, and unnecessary daemon layers degrade silicon lifespan and rob users of agency. We strip systems down to clean kernel primitives and honest binaries.
-            </p>
-          </div>
+        <article class="manifesto-row">
+          <div class="row-num font-mono">03</div>
+          <h3 class="row-title">Eradicate Software Cruelty</h3>
+          <p class="row-statement">
+            Bloatware, background telemetry, Electron wrappers, and unnecessary daemon layers degrade silicon lifespan and rob users of agency. We strip systems down to clean kernel primitives and honest binaries.
+          </p>
         </article>
 
-        <article class="manifesto-entry">
-          <div class="manifesto-num font-mono">04</div>
-          <div class="manifesto-body">
-            <h3 class="manifesto-heading">The Zero Client JS Ideal</h3>
-            <p class="text-body manifesto-text">
-              Deliver maximum utility with the absolute minimum computational overhead. This platform ships 0 kB client-side framework JavaScript, loads instantly on low-bandwidth cellular, and respects user battery cycles.
-            </p>
-          </div>
+        <article class="manifesto-row">
+          <div class="row-num font-mono">04</div>
+          <h3 class="row-title">The Zero Client JS Ideal</h3>
+          <p class="row-statement">
+            Deliver maximum utility with the absolute minimum computational overhead. This platform ships 0 kB client-side framework JavaScript, loads instantly on low-bandwidth cellular, and respects user battery cycles.
+          </p>
         </article>
       </div>
     </div>
@@ -152,48 +139,53 @@ try {
   <section id="guides" class="guides-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="text-title-1 section-title">Video Companion Guides</h2>
-        <p class="text-body section-desc">
+        <span class="section-eyebrow font-mono text-accent">REPRODUCIBLE ARTIFACTS</span>
+        <h2 class="section-title">Video Companion Guides</h2>
+        <p class="section-desc">
           When videos premiere on YouTube, full reproducible companion guides, terminal logs, and kernel tuning flags populate here.
         </p>
       </div>
 
       {guides.length > 0 ? (
-        <div class="guides-grid">
+        <div class="guides-table">
           {guides.map((guide) => (
-            <a href={`/guides/${guide.id}`} class="guide-card">
-              <span class="font-mono text-footnote guide-date">
+            <a href={`/guides/${guide.id}`} class="guide-row">
+              <span class="guide-date font-mono">
                 {guide.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
               </span>
-              <h3 class="text-title-2 guide-title">{guide.data.title}</h3>
-              <p class="text-body guide-desc">{guide.data.description}</p>
-              <div class="guide-footer">
-                <span class="guide-link-cta font-mono text-footnote">View Terminal Receipts →</span>
+              <div class="guide-body">
+                <h3 class="guide-title">{guide.data.title}</h3>
+                <p class="guide-desc">{guide.data.description}</p>
               </div>
+              <span class="guide-cta font-mono">View Receipts →</span>
             </a>
           ))}
         </div>
       ) : (
-        <div class="empty-guides-card">
-          <div class="pipeline-monitor-header font-mono">
-            <span>PIPELINE: STANDARDIZED RIG BENCHMARKING</span>
-          </div>
-          
-          <div class="empty-icon-wrap">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="empty-icon">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-              <line x1="6" y1="6" x2="6.01" y2="6"></line>
-              <line x1="6" y1="18" x2="6.01" y2="18"></line>
-            </svg>
+        <!-- Systems Dispatch Block (Zero Toy Empty State) -->
+        <div class="pipeline-dispatch-container font-mono">
+          <div class="dispatch-header">
+            <div class="dispatch-header-left">
+              <span class="dispatch-pill">[PIPELINE STATUS: BENCHMARK RIG ACTIVE]</span>
+            </div>
+            <div class="dispatch-header-right">
+              <span>TARGET: COMPANION GUIDE #1</span>
+            </div>
           </div>
 
-          <h3 class="text-title-2 empty-title">Companion Pipeline Ready</h3>
-          <p class="text-body empty-desc">
-            Video #1 is undergoing rigorous hardware constraint benchmarks on our AMD Zen 4 test rig. The moment the video premieres on <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="link-inline">@zerocruft</a>, its full companion guide, complete with exact copy-paste configuration flags and terminal receipts, will deploy here.
-          </p>
+          <div class="dispatch-body">
+            <div class="dispatch-line">
+              <span class="text-accent">> ACTIVE WORKLOAD:</span> AMD Zen 4 Ryzen 9 7950X • DDR5-6000 Sub-60ns Memory Latency & Linux Zen Kernel Suite
+            </div>
+            <div class="dispatch-line">
+              <span class="text-accent">> STATUS TRACE:</span> Standardized fio random-read tests and perf stat IPC analyses underway on bare metal.
+            </div>
+            <div class="dispatch-line dispatch-desc">
+              Full reproducible companion guide, including exact copy-paste sysctl kernel flags, fio profiles, and terminal receipts, deploys concurrently with the premiere on <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="link-inline">YouTube @zerocruft</a>.
+            </div>
+          </div>
 
-          <div class="empty-actions">
+          <div class="dispatch-actions">
             <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               Follow on YouTube
             </a>
@@ -211,21 +203,17 @@ try {
 </BaseLayout>
 
 <style>
-  /* Split Hero */
+  /* Hero Section */
   .hero-section {
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-8);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-12);
   }
 
   @media (min-width: 768px) {
     .hero-section {
-      padding-top: var(--space-12);
-      padding-bottom: var(--space-12);
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
     }
-  }
-
-  .hero-container {
-    max-width: 1200px;
   }
 
   .hero-split-grid {
@@ -246,64 +234,53 @@ try {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
   }
 
-  .hero-badge-strip {
-    display: flex;
-    flex-wrap: wrap;
+  .hero-eyebrow {
+    display: inline-flex;
     align-items: center;
     gap: var(--space-2);
     margin-bottom: var(--space-4);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
   }
 
-  .pill-youtube-link {
-    background: var(--color-youtube-subtle);
-    border-color: rgba(255, 51, 51, 0.25);
-    color: #ff6666;
-    transition: var(--spring-micro);
-  }
-
-  .pill-youtube-link:hover {
-    background: rgba(255, 51, 51, 0.20);
-    color: #ff8080;
-  }
-
-  .youtube-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ff3333;
-  }
-
-  .pill-zero-js {
-    background: rgba(48, 209, 88, 0.12);
-    border-color: rgba(48, 209, 88, 0.28);
+  .eyebrow-badge {
     color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .eyebrow-sep {
+    color: rgba(255, 255, 255, 0.20);
+  }
+
+  .eyebrow-stat {
+    color: var(--color-text-tertiary);
   }
 
   .hero-title {
     margin-bottom: var(--space-4);
     letter-spacing: -0.035em;
     font-size: 2.25rem;
-    line-height: 1.12;
+    line-height: 1.1;
+    font-weight: 700;
     color: var(--color-text-primary);
   }
 
   @media (min-width: 640px) {
     .hero-title {
-      font-size: 2.75rem;
+      font-size: 3rem;
     }
   }
 
   @media (min-width: 1024px) {
     .hero-title {
-      font-size: 3.25rem;
+      font-size: 3.5rem;
     }
   }
 
   .hero-subtitle {
-    max-width: 540px;
+    max-width: 520px;
     margin-bottom: var(--space-6);
     font-size: 1.0625rem;
     line-height: 1.6;
@@ -341,7 +318,7 @@ try {
     color: rgba(255, 255, 255, 0.20);
   }
 
-  .hero-terminal-col {
+  .hero-receipt-col {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -349,74 +326,81 @@ try {
 
   /* Section Headers */
   .section-header {
-    text-align: center;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
+    max-width: 720px;
     margin-bottom: var(--space-8);
   }
 
-  .section-title {
-    margin-top: var(--space-2);
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    display: block;
     margin-bottom: var(--space-2);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-2);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
   }
 
   .section-desc {
     color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.6;
   }
 
-  /* Manifesto Section - Typographic Grid */
+  /* Manifesto Editorial Table (Blueprint: manifesto-editorial) */
   .manifesto-section {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-12);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .manifesto-list {
+  .manifesto-table {
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .manifesto-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-2);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .manifesto-row:last-child {
+    border-bottom: none;
   }
 
   @media (min-width: 768px) {
-    .manifesto-list {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-8);
+    .manifesto-row {
+      grid-template-columns: 72px 280px 1fr;
+      gap: var(--space-6);
+      align-items: baseline;
+      padding: var(--space-8) 0;
     }
   }
 
-  .manifesto-entry {
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-    padding: var(--space-5);
-    background: var(--surface-1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-md);
-  }
-
-  .manifesto-num {
-    font-size: 1.25rem;
+  .row-num {
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-accent);
-    line-height: 1.2;
-    flex-shrink: 0;
   }
 
-  .manifesto-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .manifesto-heading {
-    font-size: 1.125rem;
+  .row-title {
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-text-primary);
     line-height: 1.3;
   }
 
-  .manifesto-text {
+  .row-statement {
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
   }
@@ -424,74 +408,138 @@ try {
   .inline-code {
     font-family: var(--font-mono);
     font-size: 0.85em;
-    background: rgba(255, 255, 255, 0.08);
-    padding: var(--space-1) var(--space-2);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 4px 8px;
     border-radius: 4px;
     color: #e6edf3;
   }
 
   /* Guides Section */
   .guides-section {
-    padding-top: var(--space-10);
+    padding-top: var(--space-12);
     padding-bottom: var(--space-16);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .empty-guides-card {
-    padding: var(--space-6);
-    text-align: center;
+  .guides-table {
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .guide-row {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 680px;
-    margin: 0 auto;
-    background: var(--surface-1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-md);
+    gap: var(--space-2);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: var(--spring-micro);
   }
 
-  .pipeline-monitor-header {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-1) var(--space-3);
-    background: rgba(48, 209, 88, 0.08);
-    border: 1px solid rgba(48, 209, 88, 0.22);
-    border-radius: var(--radius-sm);
-    margin-bottom: var(--space-5);
+  .guide-row:last-child {
+    border-bottom: none;
+  }
+
+  @media (min-width: 768px) {
+    .guide-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+  }
+
+  .guide-row:hover {
+    padding-left: var(--space-2);
+  }
+
+  .guide-date {
     font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+    min-width: 100px;
+  }
+
+  .guide-body {
+    flex-grow: 1;
+  }
+
+  .guide-title {
+    font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-accent);
-    letter-spacing: 0.04em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
   }
 
-  .empty-icon-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-4);
-    color: var(--color-accent);
-  }
-
-  .empty-title {
-    margin-bottom: var(--space-2);
-  }
-
-  .empty-desc {
-    margin-bottom: var(--space-6);
-    line-height: 1.6;
+  .guide-desc {
+    font-size: 0.875rem;
     color: var(--color-text-secondary);
   }
 
-  .empty-actions {
+  .guide-cta {
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* Pipeline Dispatch Block (Zero Card Soup) */
+  .pipeline-dispatch-container {
+    width: 100%;
+    background: #08090c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .dispatch-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-5);
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.75rem;
+  }
+
+  .dispatch-pill {
+    color: var(--color-accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .dispatch-header-right {
+    color: var(--color-text-tertiary);
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+  }
+
+  .dispatch-body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: #e6edf3;
+  }
+
+  .dispatch-line {
+    word-break: break-word;
+  }
+
+  .dispatch-desc {
+    color: var(--color-text-secondary);
+    padding-top: var(--space-2);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .dispatch-actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-3);
-    justify-content: center;
+    padding: var(--space-4) var(--space-5);
+    background: rgba(0, 0, 0, 0.20);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .link-inline {
@@ -500,45 +548,15 @@ try {
     text-underline-offset: 4px;
   }
 
-  .guides-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-
-  @media (min-width: 640px) {
-    .guides-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .guide-card {
-    padding: var(--space-5);
-    background: var(--surface-1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .guide-date {
-    color: var(--color-text-tertiary);
-    margin-bottom: var(--space-2);
-  }
-
-  .guide-title {
-    margin-bottom: var(--space-2);
-  }
-
-  .guide-desc {
-    margin-bottom: var(--space-4);
-  }
-
-  .guide-footer {
-    margin-top: auto;
-  }
-
-  .guide-link-cta {
+  .text-accent {
     color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .dispatch-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
   }
 </style>

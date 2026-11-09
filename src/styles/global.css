@@ -199,46 +199,16 @@ a, button {
   text-decoration: none;
 }
 
-/* Surface Cards */
-.card-glass {
-  background: var(--color-surface-1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: var(--border-subtle);
-  box-shadow: var(--highlight-inner);
-  border-radius: var(--radius-lg);
-  transition: var(--spring-nav);
-}
-
-.card-glass:hover {
-  background: var(--color-surface-2);
-  border-color: rgba(255, 255, 255, 0.14);
-  transform: translateY(-2px);
-}
-
-/* Specular Glass Elevation (Level 2 Apple HIG) */
-.card-glass-elevated {
+/* Surface Containers & Hairline Boundaries */
+.surface-panel {
   background: var(--surface-1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-lg);
-  box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
   transition: var(--spring-nav);
 }
 
-.card-glass-elevated:hover {
-  background: var(--surface-2);
+.surface-panel:hover {
   border-color: rgba(255, 255, 255, 0.14);
-  border-top-color: rgba(255, 255, 255, 0.26);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 28px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 24px rgba(48, 209, 88, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 /* Interactive Buttons (Min 44x44pt click target) */
@@ -253,7 +223,7 @@ a, button {
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   border: none;
   transition: var(--spring-micro);
@@ -261,51 +231,48 @@ a, button {
 }
 
 .btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 .btn-primary {
   background: #ffffff;
   color: #000000;
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.90);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.88);
 }
 
 .btn-youtube {
   background: var(--color-youtube);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(255, 51, 51, 0.25);
 }
 
 .btn-youtube:hover {
   background: #ff4747;
-  box-shadow: 0 6px 20px rgba(255, 51, 51, 0.35);
+  color: #ffffff;
 }
 
 .btn-secondary {
-  background: var(--color-surface-2);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--color-text-primary);
-  border: var(--border-subtle);
-  box-shadow: var(--highlight-inner);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .btn-secondary:hover {
-  background: var(--color-surface-3);
-  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.20);
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--color-text-secondary);
+  border: 1px solid transparent;
 }
 
 .btn-ghost:hover {
-  background: var(--color-surface-1);
   color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Badge / Technical Tags */
@@ -316,11 +283,11 @@ a, button {
   min-height: 32px;
   padding: 0 var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 500;
   border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-  border: var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--color-text-secondary);
 }
 
@@ -337,42 +304,31 @@ a, button {
   background-color: currentColor;
 }
 
-/* High-Contrast Terminal / Code Snippets */
-.terminal-block {
-  background: var(--color-surface-code);
-  border: var(--border-subtle);
+/* High-Contrast Code Snippets & Receipts */
+.receipt-wrapper {
+  background: #06080d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
 }
 
-.terminal-header {
+.receipt-status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 40px;
-  padding: var(--space-2) var(--space-4);
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: var(--border-subtle);
-}
-
-.terminal-prompt {
+  padding: 0 var(--space-4);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--color-text-secondary);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
 }
 
-.terminal-prompt-user {
-  color: var(--color-accent);
-}
-
-.terminal-body {
+.receipt-stream {
   padding: var(--space-4);
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   line-height: 1.6;
   color: #e6edf3;
   overflow-x: auto;
