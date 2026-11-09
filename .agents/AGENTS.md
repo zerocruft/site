@@ -33,8 +33,9 @@
 
 ## Mandatory Pre-Flight Verification Gate
 - ZERO blind commits or deployments.
+- **Ponytail Shortcut Standard**: When taking an intentional architectural shortcut, leaving an MVP stub, or deferring work, the agent MUST write `// shortcut: <limit>, <upgrade>`. Never leave bare `TODO:` or `FIXME:` comments.
 - Before committing UI changes, ALWAYS run `powerpack preflight`.
   - Step 1 (Code Hygiene & Composition): Enforces 8pt grid, tap targets, no simulated window chrome mockups, and no card monotony.
-  - Step 2 (Ponytail Diff): Audits net line churn and scope.
-  - Step 3 (Headless DOM Telemetry): Verifies rendered geometry against `dist/index.html` on Desktop (1440x900) and Mobile (390x844).
+  - Step 2 (Ponytail Debt & Diff): Audits shortcuts, detects untagged debt (TODO/FIXME), and checks net line churn.
+  - Step 3 (Headless DOM Telemetry & Visual Review): Verifies rendered geometry against `dist/index.html` on Desktop (1440x900) and Mobile (390x844), automatically capturing `/tmp/preflight_rendered.png`. Agent MUST inspect the snapshot via `read_file` to visually verify composition before committing.
 - ALWAYS verify clean build via `npm run build` before pushing.
