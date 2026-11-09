@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import RigSpecs from '../components/RigSpecs.astro';
 import { getCollection } from 'astro:content';
 
 let guides: any[] = [];
@@ -16,21 +15,21 @@ try {
   <section class="hero-section">
     <div class="container hero-container">
       <div class="hero-eyebrow font-mono">
-        <span class="eyebrow-badge text-accent">ARCH LINUX</span>
+        <span class="eyebrow-badge text-accent">LINUX SYSTEMS</span>
         <span class="eyebrow-sep">//</span>
-        <span class="eyebrow-badge">AMD ZEN 4</span>
+        <span class="eyebrow-badge">DEBLOAT GUIDES</span>
         <span class="eyebrow-sep">//</span>
-        <span class="eyebrow-stat">0 kB CLIENT RUNTIME</span>
+        <span class="eyebrow-stat">0 kB JAVASCRIPT</span>
       </div>
 
       <h1 class="hero-title">
-        Anti-Bloat Engineering.<br />
-        Bare Silicon.<br />
-        Zero Synthetic Hype.
+        Practical Linux debloating.<br />
+        Clean dotfiles.<br />
+        Zero synthetic hype.
       </h1>
 
       <p class="hero-lead">
-        Low-level Linux systems performance, memory constraint audits, and kernel tuning receipts. We test on real hardware, measure sub-microsecond latency, and eliminate software cruelty without unnecessary abstraction layers.
+        Step-by-step guides, shell scripts, and system configurations to strip unnecessary background services and keep Linux machines fast and responsive. Every guide comes with verifiable commands you can inspect and run yourself.
       </p>
 
       <div class="hero-actions">
@@ -64,39 +63,36 @@ try {
         </a>
       </div>
 
-      <!-- Integrated 4-Pillar Telemetry Baseline (1px Hairline Dividers) -->
+      <!-- Integrated 4-Pillar Baseline (1px Hairline Dividers) -->
       <div class="hero-telemetry-matrix font-mono">
         <div class="telemetry-cell">
           <span class="telemetry-metric text-accent">0 kB</span>
-          <span class="telemetry-label">Client JS Overhead</span>
-        </div>
-        <div class="telemetry-cell">
-          <span class="telemetry-metric">&lt;60 ns</span>
-          <span class="telemetry-label">DDR5-6000 CL30 Latency</span>
-        </div>
-        <div class="telemetry-cell">
-          <span class="telemetry-metric">7,450 MB/s</span>
-          <span class="telemetry-label">PCIe Gen4 Direct-I/O</span>
+          <span class="telemetry-label">Client JS Runtime</span>
         </div>
         <div class="telemetry-cell">
           <span class="telemetry-metric">100%</span>
-          <span class="telemetry-label">Reproducible Runs</span>
+          <span class="telemetry-label">Verifiable Shell Receipts</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-metric">0</span>
+          <span class="telemetry-label">Paid Sponsor Placements</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-metric">OPEN</span>
+          <span class="telemetry-label">Plain Text & RSS Feeds</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hardware Benchmark Rig Telemetry Matrix (spec-matrix) -->
-  <RigSpecs />
-
-  <!-- The Anti-Bloat Manifesto (Blueprint: manifesto-editorial) -->
+  <!-- The Anti-Bloat Principles (Editorial Format) -->
   <section id="manifesto" class="manifesto-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow font-mono text-accent">THE ZERO CRUFT DIRECTIVES</span>
-        <h2 class="section-title">The Anti-Bloat Manifesto</h2>
+        <span class="section-eyebrow font-mono text-accent">THE ZERO CRUFT PRINCIPLES</span>
+        <h2 class="section-title">How We Build and Test</h2>
         <p class="section-desc">
-          Modern computing has substituted memory bandwidth for discipline. ZeroCruft stands for four uncompromising engineering truths.
+          We focus on lightweight systems, battery life, and clean terminal workflows. Here is the standard every video and guide follows.
         </p>
       </div>
 
@@ -104,33 +100,33 @@ try {
       <div class="manifesto-table">
         <article class="manifesto-row">
           <div class="row-num font-mono">01</div>
-          <h3 class="row-title">Constraint is the True Benchmark</h3>
+          <h3 class="row-title">Low-Spec First</h3>
           <p class="row-statement">
-            Any software can seem smooth when fed 64GB of DDR5 and a 24-core CPU. Real engineering begins when resources are finite. If a tool cannot run gracefully on a 10-year-old dual-core, it is not progressive—it is negligent.
+            Any software can seem fast when fed top-tier hardware and excessive RAM. Real optimization begins under constraints. We build and test configs to ensure they stay responsive on modest laptops and everyday machines.
           </p>
         </article>
 
         <article class="manifesto-row">
           <div class="row-num font-mono">02</div>
-          <h3 class="row-title">Terminal Receipts Over Sentiments</h3>
+          <h3 class="row-title">Verifiable Shell Commands</h3>
           <p class="row-statement">
-            No synthetic manufacturer slides. No promotional cherry-picking. Every optimization claim on ZeroCruft is backed by verifiable <code class="inline-code">perf stat</code>, frame-time percentile tails, and raw shell logs.
+            No promotional slides or unsubstantiated claims. Every guide provides the exact terminal commands, configuration diffs, and package lists so you know exactly what is changing on your system.
           </p>
         </article>
 
         <article class="manifesto-row">
           <div class="row-num font-mono">03</div>
-          <h3 class="row-title">Eradicate Software Cruelty</h3>
+          <h3 class="row-title">Strip Unnecessary Services</h3>
           <p class="row-statement">
-            Bloatware, background telemetry, Electron wrappers, and unnecessary daemon layers degrade silicon lifespan and rob users of agency. We strip systems down to clean kernel primitives and honest binaries.
+            Background telemetry daemons, unvetted autostart helpers, and unnecessary wrapper processes quietly consume memory and battery cycles. We audit and trim systems down to clean, transparent defaults.
           </p>
         </article>
 
         <article class="manifesto-row">
           <div class="row-num font-mono">04</div>
-          <h3 class="row-title">The Zero Client JS Ideal</h3>
+          <h3 class="row-title">Zero Client JavaScript</h3>
           <p class="row-statement">
-            Deliver maximum utility with the absolute minimum computational overhead. This platform ships 0 kB client-side framework JavaScript, loads instantly on low-bandwidth cellular, and respects user battery cycles.
+            This companion site is built with pure semantic HTML and CSS, shipping 0 kB of client JavaScript. It loads instantly on mobile, respects your data allowance, and consumes zero idle CPU.
           </p>
         </article>
       </div>
@@ -168,22 +164,22 @@ try {
         <div class="pipeline-dispatch-container font-mono">
           <div class="dispatch-header">
             <div class="dispatch-header-left">
-              <span class="dispatch-pill">[PIPELINE STATUS: BENCHMARK RIG ACTIVE]</span>
+              <span class="dispatch-pill">[COMPANION PIPELINE]</span>
             </div>
             <div class="dispatch-header-right">
-              <span>TARGET: COMPANION GUIDE #1</span>
+              <span>UPCOMING EPISODES</span>
             </div>
           </div>
 
           <div class="dispatch-body">
             <div class="dispatch-line">
-              <span class="text-accent">> ACTIVE WORKLOAD:</span> AMD Zen 4 Ryzen 9 7950X • DDR5-6000 Sub-60ns Memory Latency & Linux Zen Kernel Suite
+              <span class="text-accent">> TOPICS:</span> Arch Linux & Debian minimal setups, window managers, memory reduction, and clean dotfiles.
             </div>
             <div class="dispatch-line">
-              <span class="text-accent">> STATUS TRACE:</span> Standardized fio random-read tests and perf stat IPC analyses underway on bare metal.
+              <span class="text-accent">> COMPANIONS:</span> Step-by-step terminal instructions, configuration files, and script links deploy alongside every video.
             </div>
             <div class="dispatch-line dispatch-desc">
-              Full reproducible companion guide, including exact copy-paste sysctl kernel flags, fio profiles, and terminal receipts, deploys concurrently with the premiere on <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="link-inline">YouTube @zerocruft</a>.
+              All guides and shell recipes are published directly here as companion resources to <a href="https://www.youtube.com/@zerocruft" target="_blank" rel="noopener noreferrer" class="link-inline">YouTube @zerocruft</a>.
             </div>
           </div>
 
@@ -205,8 +201,6 @@ try {
 </BaseLayout>
 
 <style>
-  /* Hero Section */
-  .hero-section {
   /* Hero Section: Editorial Systems Showcase */
   .hero-section {
     padding-top: var(--space-14);
