@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TerminalReceipt from '../components/TerminalReceipt.astro';
 import RigSpecs from '../components/RigSpecs.astro';
 import { getCollection } from 'astro:content';
 
@@ -13,72 +12,75 @@ try {
 ---
 
 <BaseLayout>
-  <!-- Split Hero Section (Blueprint: hero-systems) -->
+  <!-- Hero Section: Pure High-Contrast Editorial Systems Statement (Zero Terminal Clutter) -->
   <section class="hero-section">
-    <div class="container">
-      <div class="hero-split-grid">
-        <!-- Left Column: Editorial Typography & Actions -->
-        <div class="hero-content">
-          <div class="hero-eyebrow font-mono">
-            <span class="eyebrow-badge">ARCH LINUX // ZEN 4</span>
-            <span class="eyebrow-sep">•</span>
-            <span class="eyebrow-stat">0 kB CLIENT RUNTIME</span>
-          </div>
+    <div class="container hero-container">
+      <div class="hero-eyebrow font-mono">
+        <span class="eyebrow-badge text-accent">ARCH LINUX</span>
+        <span class="eyebrow-sep">//</span>
+        <span class="eyebrow-badge">AMD ZEN 4</span>
+        <span class="eyebrow-sep">//</span>
+        <span class="eyebrow-stat">0 kB CLIENT RUNTIME</span>
+      </div>
 
-          <h1 class="hero-title">
-            Anti-Bloat Engineering.<br />
-            Terminal Receipts.<br />
-            Raw Silicon.
-          </h1>
+      <h1 class="hero-title">
+        Anti-Bloat Engineering.<br />
+        Bare Silicon.<br />
+        Zero Synthetic Hype.
+      </h1>
 
-          <p class="hero-subtitle">
-            Low-level Linux systems engineering and hardware constraint benchmarks. We inspect NVMe Direct-I/O throughput, tune kernel memory parameters, and establish reproducible benchmark receipts without unnecessary abstraction layers.
-          </p>
+      <p class="hero-lead">
+        Low-level Linux systems performance, memory constraint audits, and kernel tuning receipts. We test on real hardware, measure sub-microsecond latency, and eliminate software cruelty without unnecessary abstraction layers.
+      </p>
 
-          <div class="hero-actions">
-            <a
-              href="https://www.youtube.com/@zerocruft"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-youtube"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-              <span>Subscribe on YouTube</span>
-            </a>
+      <div class="hero-actions">
+        <a
+          href="https://www.youtube.com/@zerocruft"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-youtube"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Subscribe on YouTube</span>
+        </a>
 
-            <a href="#manifesto" class="btn btn-secondary">
-              <span>Read Manifesto</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </a>
+        <a href="#manifesto" class="btn btn-secondary">
+          <span>Read Manifesto</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
 
-            <a href="/llms.txt" class="btn btn-ghost font-mono text-footnote" title="Plain Markdown Manifest for LLMs">
-              <span>llms.txt</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
+        <a href="/llms.txt" class="btn btn-ghost font-mono text-footnote" title="Plain Markdown Manifest for LLMs">
+          <span>llms.txt</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
 
-          <!-- Micro Hardware Telemetry Strip -->
-          <div class="hero-telemetry-row font-mono">
-            <span class="telemetry-item">DIRECT-I/O BYPASS</span>
-            <span class="telemetry-sep">•</span>
-            <span class="telemetry-item">SUB-60NS MEMORY</span>
-            <span class="telemetry-sep">•</span>
-            <span class="telemetry-item">0 kB CLIENT RUNTIME</span>
-          </div>
+      <!-- Integrated 4-Pillar Telemetry Baseline (1px Hairline Dividers) -->
+      <div class="hero-telemetry-matrix font-mono">
+        <div class="telemetry-cell">
+          <span class="telemetry-metric text-accent">0 kB</span>
+          <span class="telemetry-label">Client JS Overhead</span>
         </div>
-
-        <!-- Right Column: Authentic Preformatted Receipt -->
-        <div class="hero-receipt-col">
-          <TerminalReceipt />
+        <div class="telemetry-cell">
+          <span class="telemetry-metric">&lt;60 ns</span>
+          <span class="telemetry-label">DDR5-6000 CL30 Latency</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-metric">7,450 MB/s</span>
+          <span class="telemetry-label">PCIe Gen4 Direct-I/O</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-metric">100%</span>
+          <span class="telemetry-label">Reproducible Runs</span>
         </div>
       </div>
     </div>
@@ -205,32 +207,15 @@ try {
 <style>
   /* Hero Section */
   .hero-section {
-    padding-top: var(--space-10);
+  /* Hero Section: Editorial Systems Showcase */
+  .hero-section {
+    padding-top: var(--space-14);
     padding-bottom: var(--space-12);
   }
 
-  @media (min-width: 768px) {
-    .hero-section {
-      padding-top: var(--space-16);
-      padding-bottom: var(--space-16);
-    }
-  }
-
-  .hero-split-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    align-items: center;
-  }
-
-  @media (min-width: 960px) {
-    .hero-split-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-    }
-  }
-
-  .hero-content {
+  .hero-container {
+    max-width: 960px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -240,13 +225,12 @@ try {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
     font-size: 0.75rem;
     color: var(--color-text-secondary);
   }
 
   .eyebrow-badge {
-    color: var(--color-accent);
     font-weight: 600;
   }
 
@@ -259,30 +243,30 @@ try {
   }
 
   .hero-title {
-    margin-bottom: var(--space-4);
-    letter-spacing: -0.035em;
-    font-size: 2.25rem;
-    line-height: 1.1;
-    font-weight: 700;
-    color: var(--color-text-primary);
+    margin-bottom: var(--space-5);
+    letter-spacing: -0.04em;
+    font-size: 2.75rem;
+    line-height: 1.05;
+    font-weight: 800;
+    color: #ffffff;
   }
 
   @media (min-width: 640px) {
     .hero-title {
-      font-size: 3rem;
+      font-size: 3.75rem;
     }
   }
 
   @media (min-width: 1024px) {
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 4.5rem;
     }
   }
 
-  .hero-subtitle {
-    max-width: 520px;
-    margin-bottom: var(--space-6);
-    font-size: 1.0625rem;
+  .hero-lead {
+    max-width: 640px;
+    margin-bottom: var(--space-8);
+    font-size: 1.125rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
   }
@@ -292,36 +276,49 @@ try {
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-3);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-10);
   }
 
-  .hero-telemetry-row {
+  /* 4-Pillar Baseline Telemetry Matrix */
+  .hero-telemetry-matrix {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.01);
+  }
+
+  @media (min-width: 768px) {
+    .hero-telemetry-matrix {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .telemetry-cell {
+    padding: var(--space-5) var(--space-4);
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-2);
+    flex-direction: column;
+    gap: 4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .telemetry-cell:last-child {
+    border-right: none;
+  }
+
+  .telemetry-metric {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .telemetry-label {
     font-size: 0.6875rem;
     color: var(--color-text-tertiary);
-    letter-spacing: 0.04em;
-    padding-top: var(--space-4);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    width: 100%;
-  }
-
-  .telemetry-item {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-
-  .telemetry-sep {
-    color: rgba(255, 255, 255, 0.20);
-  }
-
-  .hero-receipt-col {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   /* Section Headers */

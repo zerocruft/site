@@ -18,14 +18,14 @@
   --space-14: 56px; /* 7 units */
   --space-16: 64px; /* 8 units */
 
-  /* OKLCH 5-Tier Surface Elevation System & Chroma-Damped Accents */
-  --surface-0: oklch(0.14 0.012 250);
-  --surface-1: oklch(0.18 0.014 250);
-  --surface-2: oklch(0.23 0.018 250);
-  --surface-3: oklch(0.29 0.022 250);
-  --surface-code: oklch(0.11 0.010 250);
+  /* 100% Solid Deep Obsidian Canvas (Zero Translucency Bleed) */
+  --color-canvas: #08090c;
+  --surface-0: #08090c;
+  --surface-1: #0e1017;
+  --surface-2: #141722;
+  --surface-3: #1b1f2e;
+  --surface-code: #06080d;
 
-  --color-canvas: var(--surface-0);
   --color-surface-1: var(--surface-1);
   --color-surface-1-solid: var(--surface-1);
   --color-surface-2: var(--surface-2);
@@ -81,7 +81,7 @@
 
 html {
   font-family: var(--font-sans);
-  background-color: var(--color-canvas);
+  background-color: #08090c !important;
   color: var(--color-text-primary);
   font-size: 16px;
   line-height: 1.5;
@@ -96,8 +96,9 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--color-canvas);
-  background-image: none;
+  background-color: #08090c !important;
+  background-image: none !important;
+  opacity: 1 !important;
 }
 
 #main-content,
